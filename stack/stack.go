@@ -22,6 +22,13 @@ func Wrap[T any](slice []T) Stack[T] {
 }
 
 // returns length after push
+func (s *Stack[T]) Curr() (T, uint) {
+	ln := uint(len(s.slice))
+
+	return s.slice[ln-1], ln
+}
+
+// returns length after push
 func (s *Stack[T]) Push(el T) uint {
 	s.slice = append(s.slice, el)
 

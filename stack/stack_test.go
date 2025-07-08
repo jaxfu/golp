@@ -19,6 +19,17 @@ func TestWrapStack(t *testing.T) {
 	}
 }
 
+func TestCurr(t *testing.T) {
+	s := Wrap([]string{"a", "b", "c"})
+	curr, ln := s.Curr()
+	if ln != 3 {
+		t.Errorf("expected length 3, got %d", s.Length())
+	}
+	if curr != "c" {
+		t.Errorf("expected element '%s', got '%s\n", "c", curr)
+	}
+}
+
 func TestPush(t *testing.T) {
 	s := NewStack[string]()
 
