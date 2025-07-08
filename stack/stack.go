@@ -24,6 +24,9 @@ func Wrap[T any](slice []T) Stack[T] {
 // returns length after push
 func (s *Stack[T]) Curr() (T, uint) {
 	ln := uint(len(s.slice))
+	if ln <= 0 {
+		return *new(T), 0
+	}
 
 	return s.slice[ln-1], ln
 }
